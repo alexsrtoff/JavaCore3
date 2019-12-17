@@ -7,17 +7,22 @@ public class Task1 {
         System.out.printf("Исходный массив:");
         System.out.println();
         printArr(arr);
-        changePlaces(arr, 0, 5);
-        System.out.println("Измененный массив:");
-        printArr(arr);
+        changePlaces(arr, 1, 4);
+
     }
 
     private static void changePlaces(String[] arr, int firstElement, int secondElement) {
-        if (firstElement > 0 || secondElement< 0) System.out.println("Индексы массива не могут быть меньше 0");
-        if (firstElement > arr.length || secondElement > arr.length) System.out.println("Пытаешься поменять местами несуществующие элементы");
-        String temp = arr[firstElement];
-        arr[firstElement] = arr[secondElement];
-        arr[secondElement]= temp;
+        if (firstElement < 0 || secondElement< 0){
+            System.out.println("Индексы массива не могут быть меньше 0");
+        }else if (firstElement > arr.length - 1 || secondElement > arr.length - 1) {
+            System.out.println("Пытаешься поменять местами несуществующие элементы");
+        }else {
+            String temp = arr[firstElement];
+            arr[firstElement] = arr[secondElement];
+            arr[secondElement] = temp;
+            System.out.println("Измененный массив:");
+            printArr(arr);
+        }
     }
 
     private static void printArr(String[] arr) {
